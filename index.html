@@ -32,12 +32,65 @@
 </div>
 
    <div class="next-header2">
-    <h1>VISIBILIY FORECAST</h1>
+    <h1>Visibility Forecast</h1>
+</div>
+
+<div class="next-header">
+    
+</div>
+<div class="next-header3">
+    <h1>My Observations</h1>
+
+<div class="button">
+    <div id="container"></div>
+  <button id="addDivBtn">Add New Box</button>
+  
+</div>
+
+
+
 </div>
 
 
 
 
+
+
+
+
+
+
+
+
+
     <script src="script.js"></script>
+    <script>
+        const addButton = document.getElementById('addDivBtn');
+        const container = document.getElementById('container');
+    
+        addButton.addEventListener('click', () => {
+          const newDiv = document.createElement('div');
+          newDiv.classList.add('styled-box');
+          newDiv.setAttribute('contenteditable', 'true');
+          newDiv.textContent = "Click here to edit...";
+    
+          const deleteBtn = document.createElement('img');
+          deleteBtn.src = 'https://cdn-icons-png.flaticon.com/512/1214/1214428.png';
+          deleteBtn.classList.add('delete-btn');
+          deleteBtn.alt = 'Delete';
+    
+          deleteBtn.addEventListener('click', () => {
+            newDiv.remove();
+          });
+    
+          newDiv.appendChild(deleteBtn);
+          container.prepend(newDiv);
+    
+          requestAnimationFrame(() => {
+            newDiv.classList.add('show');
+          });
+        });
+      </script>
+    
 </body>
 </html>
